@@ -43,7 +43,7 @@
 
 <p>
   <b>Tipo plano:</b>
-  <% if !consulta_pagina.Tipo_plano.nil? %>
+  <% if !consulta_pagina.tipo_plano.nil? %>
     <%= Plano.find(:first, :conditions => [' id = ? ', consulta_pagina.tipo_plano ] ).descricao %>
   <% end %>
 </p>
@@ -78,8 +78,8 @@
 </p>
 
 
-<%= link_to 'Alterar', edit_consultas_path(@consulta) %> |
-<%= link_to 'Criar Retorno', retorno_consultas_path(@consulta) %> |
+<%= link_to 'Alterar', edit_consulta_path(@consulta) %> |
+<%= link_to 'Criar Retorno', retorno_consulta_path(@consulta) %> |
 <%= link_to 'Incluir Foto', edit_foto_path(@consulta) %> |
 <%= link_to 'Voltar', search_buscas_path(nil) %> 
 <br>

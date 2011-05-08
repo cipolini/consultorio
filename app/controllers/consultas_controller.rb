@@ -1,6 +1,25 @@
+# encoding: UTF-8
 class ConsultasController < ApplicationController
-  # GET /consultas
-  # GET /consultas.xml
+   before_filter :authenticate
+
+  def list
+    @consulta = Consulta.paginate :page => params[:page], :conditions => ["consulta_id = ? or id = ?" ,params[:id], params[:id]], :order => "id"
+  end
+
+  def retorno
+    @consulta = Consulta.new
+    @consultaPai = Consulta.find(params[:id])
+
+    @consulta.paciente_id = @consultaPai.paciente_id 
+
+    if @consultaPai.consulta_id.nil?
+      @consulta.consulta_id = @consultaPai.id
+    else
+      @consulta.consulta_id = @consultaPai.consulta_id
+    end
+
+  end
+
   def index
     @consultas = Consulta.all
 
@@ -13,8 +32,11 @@ class ConsultasController < ApplicationController
   # GET /consultas/1
   # GET /consultas/1.xml
   def show
-    @consulta = Consulta.find(params[:id])
+#    @consulta = Consultum.find(params[:id])
+    @fotos = Foto.find(:all)
 
+    list
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @consulta }

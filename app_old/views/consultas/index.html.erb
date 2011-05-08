@@ -1,0 +1,49 @@
+<h1>Listing consultas</h1>
+
+<table>
+  <tr>
+    <th>Paciente</th>
+    <th>Descricao</th>
+    <th>Tipo consulta</th>
+    <th>Exames</th>
+    <th>Exame fisico</th>
+    <th>Cirurgia</th>
+    <th>Diagnostico</th>
+    <th>Convenio</th>
+    <th>Tipo plano</th>
+    <th>Data consulta</th>
+    <th>Status</th>
+    <th>Consulta</th>
+    <th>Medico</th>
+    <th>Systemuser</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @consultas.each do |consulta| %>
+  <tr>
+    <td><%= consulta.paciente_id %></td>
+    <td><%= consulta.descricao %></td>
+    <td><%= consulta.tipo_consulta %></td>
+    <td><%= consulta.exames %></td>
+    <td><%= consulta.exame_fisico %></td>
+    <td><%= consulta.cirurgia %></td>
+    <td><%= consulta.diagnostico %></td>
+    <td><%= consulta.convenio %></td>
+    <td><%= consulta.tipo_plano %></td>
+    <td><%= consulta.data_consulta %></td>
+    <td><%= consulta.status %></td>
+    <td><%= consulta.consulta_id %></td>
+    <td><%= consulta.medico_id %></td>
+    <td><%= consulta.systemuser_id %></td>
+    <td><%= link_to 'Show', consulta %></td>
+    <td><%= link_to 'Edit', edit_consulta_path(consulta) %></td>
+    <td><%= link_to 'Destroy', consulta, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Consulta', new_consulta_path %>

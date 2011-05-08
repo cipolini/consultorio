@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Paciente:</b>
+  <%= @consulta.paciente_id %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%= @consulta.descricao %>
+</p>
+
+<p>
+  <b>Tipo consulta:</b>
+  <%= @consulta.tipo_consulta %>
+</p>
+
+<p>
+  <b>Exames:</b>
+  <%= @consulta.exames %>
+</p>
+
+<p>
+  <b>Exame fisico:</b>
+  <%= @consulta.exame_fisico %>
+</p>
+
+<p>
+  <b>Cirurgia:</b>
+  <%= @consulta.cirurgia %>
+</p>
+
+<p>
+  <b>Diagnostico:</b>
+  <%= @consulta.diagnostico %>
+</p>
+
+<p>
+  <b>Convenio:</b>
+  <%= @consulta.convenio %>
+</p>
+
+<p>
+  <b>Tipo plano:</b>
+  <%= @consulta.tipo_plano %>
+</p>
+
+<p>
+  <b>Data consulta:</b>
+  <%= @consulta.data_consulta %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @consulta.status %>
+</p>
+
+<p>
+  <b>Consulta:</b>
+  <%= @consulta.consulta_id %>
+</p>
+
+<p>
+  <b>Medico:</b>
+  <%= @consulta.medico_id %>
+</p>
+
+<p>
+  <b>Systemuser:</b>
+  <%= @consulta.systemuser_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_consulta_path(@consulta) %> |
+<%= link_to 'Back', consultas_path %>

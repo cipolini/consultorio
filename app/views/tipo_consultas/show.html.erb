@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tipo:</b>
+  <%= @tipo_consulta.descricao %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @tipo_consulta.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_tipo_consulta_path(@tipo_consulta) %> |
+<%= link_to 'Back', tipo_consultas_path %>

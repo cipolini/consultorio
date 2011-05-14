@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class SystemUsersController < ApplicationController
-
+  before_filter :authenticate_administrador
 
   def index
     @users = SystemUser.find(:all)

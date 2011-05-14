@@ -37,14 +37,14 @@ class FotosController < ApplicationController
   # GET /fotos/1/edit
   def edit
     @foto = Foto.new
-    @foto.id_consulta = params[:id]
+    @foto.consulta_id = params[:id]
   end
 
   # POST /fotos
   # POST /fotos.xml
   def create
     @foto = Foto.new(params[:foto])
-    @consulta = Consultum.find(@foto.id_consulta)
+    @consulta = Consultum.find(@foto.consulta_id)
 
     @foto.save
     

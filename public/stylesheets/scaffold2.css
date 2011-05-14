@@ -86,3 +86,18 @@ div.field, div.actions {
     position: absolute;
     left: 40%;
 }
+
+#consulta_exame_fisico{
+    width: 370px;
+    height: 150px;
+}
+
+#consulta_diagnostico{
+    width: 370px;
+    height: 75px;
+}
+
+#consulta_cirurgia{
+    width: 370px;
+    height: 120px;
+}

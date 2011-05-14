@@ -15,6 +15,8 @@ Consultorio::Application.routes.draw  do |map|
 
   map.resources :tipo_system_users
 
+  map.resources :tipo_consultas
+
   map.resources :systems
 
   map.resources :estado_civils

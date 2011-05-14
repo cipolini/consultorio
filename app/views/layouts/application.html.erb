@@ -13,7 +13,7 @@
       <tr>
         <td>
           <div  style="text-align: left" class= "navbar" >
-          <%= link_to 'Cadastro de Paciente', new_paciente_path %>
+          <%= link_to 'Cadastrar Paciente', new_paciente_path %>
           <%= link_to 'Nova Consulta', new_consulta_path %>
           <%  if session[:logged] %>
             <%= link_to "Logout", session_path(1), :method => :delete %>

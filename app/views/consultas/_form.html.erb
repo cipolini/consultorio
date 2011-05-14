@@ -11,16 +11,18 @@
   <% end %>
 
   <div class="field">
-    Nome do paciente<br />
+    <label >Nome do paciente<br />
     <%= f.select :paciente_id, options_from_collection_for_select(Paciente.all, 'id', 'nome', :selected => @consulta.paciente_id)%>
+    </label>
   </div>
   <div class="field">
-    <%= f.label :descricao %><br />
+    <label >Anamnese<br />
     <%= f.text_area :descricao %>
+    </label>
   </div>
   <div class="field">
     <%= f.label :tipo_consulta %><br />
-    <%= f.text_field :tipo_consulta %>
+    <%= f.select :tipo_consulta, options_from_collection_for_select(TipoConsulta.find(:all) , 'id', 'descricao')%> </label>
   </div>
   <div class="field">
     <%= f.label :exames %><br />
@@ -28,15 +30,15 @@
   </div>
   <div class="field">
     <%= f.label :exame_fisico %><br />
-    <%= f.text_field :exame_fisico %>
+    <%= f.text_area :exame_fisico %>
   </div>
   <div class="field">
     <%= f.label :cirurgia %><br />
-    <%= f.text_field :cirurgia %>
+    <%= f.text_area :cirurgia %>
   </div>
   <div class="field">
     <%= f.label :diagnostico %><br />
-    <%= f.text_field :diagnostico %>
+    <%= f.text_area :diagnostico %>
   </div>
   <div class="field">
     <%= f.label :convenio %><br />
@@ -59,10 +61,6 @@
   <div class="field">
     <label>Medico <br />
     <%= f.select :medico_id, options_from_collection_for_select(Medico.find(:all), 'systemuser_id', 'nome', :selected => @consulta.medico_id) %> </label>
-  </div>
-  <div class="field">
-    <%= f.label :consulta_id %><br />
-    <%= f.text_field :consulta_id %>
   </div>
   <div class="actions">
     <button> <%= textoBotao %> </button>

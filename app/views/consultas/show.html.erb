@@ -7,13 +7,13 @@
 </p>
 
 <p>
-  <b>Descrição:</b>
+  <b>Anamnese:</b>
   <%= consulta_pagina.descricao %>
 </p>
 
 <p>
   <b>Tipo consulta:</b>
-  <%= consulta_pagina.tipo_consulta %>
+  <%= TipoConsulta.find(consulta_pagina.tipo_consulta).descricao %>
 </p>
 
 <p>
@@ -78,7 +78,6 @@
 </p>
 
 
-<%= link_to 'Alterar', edit_consulta_path(@consulta) %> |
 <%= link_to 'Criar Retorno', retorno_consulta_path(@consulta) %> |
 <%= link_to 'Incluir Foto', edit_foto_path(@consulta) %> |
 <%= link_to 'Voltar', search_buscas_path(nil) %> 

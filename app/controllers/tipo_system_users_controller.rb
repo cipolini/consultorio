@@ -1,5 +1,7 @@
 # encoding: UTF-8
 class TipoSystemUsersController < ApplicationController
+  before_filter :authenticate_administrador
+
   # GET /tipo_system_users
   # GET /tipo_system_users.xml
   def index

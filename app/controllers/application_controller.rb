@@ -14,11 +14,13 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_administrador
-    if !session[:logged].nil? and session[:logged].tipo == 1
+    if !session[:logged].nil? and session[:logged].tipo == '1'
       true
     else
       redirect_to buscas_path
     end
   end
+
+  @variavelconstante_teste = 'Ola mamae'
 
 end

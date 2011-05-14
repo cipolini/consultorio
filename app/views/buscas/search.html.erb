@@ -64,7 +64,6 @@
 		<td><%= Medico.find(:first, :conditions => ['systemuser_id = ?', consulta.medico_id] ).nome %></td>
 		<td><%= consulta.data_consulta %></td>
 		<td><%= link_to 'Show', consulta %></td>
-		<td><%= link_to 'Alterar', edit_consulta_path(consulta) %></td>
 	      </tr>
 
         <% end %>

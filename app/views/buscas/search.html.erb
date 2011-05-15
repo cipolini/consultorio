@@ -40,7 +40,7 @@
     </tr>
     <% @consultas = Consulta.find(:all)%>
       <% @consultas.each do |consulta| %>
-        <% if consulta.consulta_id.nil? %> 
+        <% if consulta.consulta_id = 0 %> 
           <% if consulta.paciente_id == resultado.id %>
             <% if @layoutConsultaImpresso %>
 	      <% @layoutConsultaImpresso = FALSE %>

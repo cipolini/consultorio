@@ -6,6 +6,12 @@
   <%= Paciente.find(consulta_pagina.paciente_id).nome %>
 </p>
 
+<% if consulta_pagina.consulta_id = 0 %>
+  <p>
+    <b>Antecedentes:</b>
+    <%= consulta_pagina.antecedentes %>
+  </p>
+<% end %>
 <p>
   <b>Anamnese:</b>
   <%= consulta_pagina.descricao %>
@@ -60,7 +66,7 @@
 
 <p>
   <b>Data consulta:</b>
-  <%= consulta_pagina.data_consulta %>
+  <%= formatacao_data_com_horas consulta_pagina.data_consulta %>
 </p>
 
 <p>
@@ -78,7 +84,7 @@
 </p>
 
 
-<%= link_to 'Criar Retorno', retorno_consulta_path(@consulta) %> |
+<%= link_to 'Consulta Retorno', retorno_consulta_path(@consulta) %> |
 <%= link_to 'Incluir Foto', edit_foto_path(@consulta) %> |
 <%= link_to 'Voltar', search_buscas_path(nil) %> 
 <br>

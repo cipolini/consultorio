@@ -1,4 +1,5 @@
 <%= form_for(@consulta) do |f| %>
+<div class="highlightsHolder">
   <% if @consulta.errors.any? %>
     <div id="error_explanation">
       <h2>O formulario está com erro (s):</h2>
@@ -15,15 +16,47 @@
     <%= f.select :paciente_id, options_from_collection_for_select(Paciente.all, 'id', 'nome', :selected => @consulta.paciente_id)%>
     </label>
   </div>
+
+  <div id="colunaesquerda"> 
+    <div class="field">
+      <label>Medico <br />
+      <%= f.select :medico_id, options_from_collection_for_select(Medico.find(:all), 'systemuser_id', 'nome', :selected => @consulta.medico_id) %> </label>
+    </div>
+
+    <div class="field">
+      <%= f.label :convenio %><br />
+      <%= f.select :convenio, options_from_collection_for_select(Convenio.find(:all) , 'id', 'descricao')%> </label>
+    </div>
+
+  </div>
+
+  <div id="colunadireita"> 
+    <div class="field">
+      <%= f.label :tipo_consulta %><br />
+      <%= f.select :tipo_consulta, options_from_collection_for_select(TipoConsulta.find(:all) , 'id', 'descricao')%> </label>
+    </div>
+
+    <div class="field">
+      <%= f.label :tipo_plano %><br />
+      <%= f.select :tipo_plano, options_from_collection_for_select(Plano.find(:all) , 'id', 'descricao')%> </label>
+    </div>
+
+  </div>
+
+  <% if visivel_antecedentes %>
+  <div class="field">
+    <label >Antecendentes<br />
+    <%= f.text_area :descricao%>
+    </label>
+  </div>
+  <% end %>
+
   <div class="field">
     <label >Anamnese<br />
     <%= f.text_area :descricao %>
     </label>
   </div>
-  <div class="field">
-    <%= f.label :tipo_consulta %><br />
-    <%= f.select :tipo_consulta, options_from_collection_for_select(TipoConsulta.find(:all) , 'id', 'descricao')%> </label>
-  </div>
+
   <div class="field">
     <%= f.label :exames %><br />
     <%= f.text_field :exames %>
@@ -40,29 +73,19 @@
     <%= f.label :diagnostico %><br />
     <%= f.text_area :diagnostico %>
   </div>
-  <div class="field">
-    <%= f.label :convenio %><br />
-    <%= f.select :convenio, options_from_collection_for_select(Convenio.find(:all) , 'id', 'descricao')%> </label>
-  </div>
-  <div class="field">
-    <%= f.label :tipo_plano %><br />
-    <%= f.select :tipo_plano, options_from_collection_for_select(Plano.find(:all) , 'id', 'descricao')%> </label>
-  </div>
 
   <div class="field">
     <%= f.label :data_consulta %><br />
     <%= f.datetime_select :data_consulta %>
   </div>
+
   <div class="field">
     <%= f.label :status %><br />
     <%= f.select :status, options_for_select( { "Atendido" => "Atendido"}) %>
   </div>
 
-  <div class="field">
-    <label>Medico <br />
-    <%= f.select :medico_id, options_from_collection_for_select(Medico.find(:all), 'systemuser_id', 'nome', :selected => @consulta.medico_id) %> </label>
-  </div>
   <div class="actions">
     <button> <%= textoBotao %> </button>
   </div>
+</div>
 <% end %>

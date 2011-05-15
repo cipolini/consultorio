@@ -21,6 +21,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  @variavelconstante_teste = 'Ola mamae'
-
 end

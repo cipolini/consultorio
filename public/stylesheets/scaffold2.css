@@ -87,17 +87,57 @@ div.field, div.actions {
     left: 40%;
 }
 
-#consulta_exame_fisico{
-    width: 370px;
+#consulta_exame_fisico, #consulta_exame_fisico{
     height: 150px;
 }
 
-#consulta_diagnostico{
-    width: 370px;
+#consulta_diagnostico, #consulta_diagnostico{
     height: 75px;
 }
 
-#consulta_cirurgia{
-    width: 370px;
+#consulta_cirurgia, #consulta_cirurgia{
     height: 120px;
+}
+
+#colunaesquerda{
+    margin-left: 0;
+    width: 49%;
+    float: left;
+}
+
+#colunadireita{
+    width: 49%;
+    float: left;
+}
+
+.master{
+    margin: 0 auto;
+    padding: 1px 15px;
+    text-align: left;
+    width: 960px;
+}
+
+body, div, ol, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+select {
+    width: 250px;
+}
+
+textarea{
+    width: 95%;
+}
+
+html, body {
+    height: 100%;
+    min-width: 990px;
+}
+
+.highlightsHolder {
+    width: 100%;
+    overflow: hidden;
+    display: inline;
+    float: left;
 }

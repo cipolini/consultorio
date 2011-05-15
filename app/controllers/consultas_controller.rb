@@ -2,22 +2,12 @@
 class ConsultasController < ApplicationController
    before_filter :authenticate
 
-  def list
-    @consulta = Consulta.paginate :page => params[:page], :conditions => ["consulta_id = ? or id = ?" ,params[:id], params[:id]], :order => "id"
-  end
-
   def retorno
+#    @consulta_pre = Consulta.find(params[:id])
     @consulta = Consulta.new
-    @consultaPai = Consulta.find(params[:id])
+#    @consulta.paciente_id = @consulta_pre.paciente_id
 
-    @consulta.paciente_id = @consultaPai.paciente_id 
-
-    if @consultaPai.consulta_id.nil?
-      @consulta.consulta_id = @consultaPai.id
-    else
-      @consulta.consulta_id = @consultaPai.consulta_id
-    end
-
+#    @paciente = Paciente.find(@consulta_pre.paciente_id)
   end
 
   def index
@@ -35,7 +25,9 @@ class ConsultasController < ApplicationController
 #    @consulta = Consultum.find(params[:id])
     @fotos = Foto.find(:all)
 
-    list
+    @primeira_consulta = Consulta.find(params[:id])
+
+    @consulta = Consulta.paginate :page => params[:page], :conditions => ["paciente_id = ?" , @primeira_consulta.paciente_id ], :order => "id"
     
     respond_to do |format|
       format.html # show.html.erb
@@ -63,6 +55,15 @@ class ConsultasController < ApplicationController
   # POST /consultas.xml
   def create
     @consulta = Consulta.new(params[:consulta])
+
+    # Diferenciando consulta de retorno
+    @jah_tem_consulta = Consulta.find(:first, :conditions => [ "paciente_id = ?", @consulta.paciente_id] )
+
+    if @jah_tem_consulta
+      @consulta.consulta_id = 1
+    else
+      @consulta.consulta_id = 0
+    end
 
     respond_to do |format|
       if @consulta.save

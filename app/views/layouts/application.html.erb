@@ -8,32 +8,34 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+
   <div >
     <table style="width:100%; " class= "navbar" >
       <tr>
+        <%  if session[:logged] %>
         <td>
           <div  style="text-align: left" class= "navbar" >
-          <%= link_to 'Cadastrar Paciente', new_paciente_path %>
-          <%= link_to 'Nova Consulta', new_consulta_path %>
-          <%  if session[:logged] %>
+            <%= link_to 'Cadastrar Paciente', new_paciente_path %>
+            <%= link_to 'Nova Consulta', new_consulta_path %>
+            <%= link_to 'Consulta de Retorno', retorno_consulta_path(-1) %>
             <%= link_to "Logout", session_path(1), :method => :delete %>
-          <% end %>
-        </div>
-      </td>
-      <td>
-          <div style="text-align: right" class= "navbar" >
-          <%= form_tag search_buscas_path, :method => "get" do %>
+          </div>
+        </td>
+        <td>
+            <div style="text-align: right" class= "navbar" >
+            <%= form_tag search_buscas_path, :method => "get" do %>
 
-            <%= label_tag :busca, "Busca" %>
-            <%=h text_field_tag :busca %>
-            <%= submit_tag "Pesquisar"%>
+              <%= label_tag :busca, "Busca" %>
+              <%=h text_field_tag :busca %>
+              <%= submit_tag "Pesquisar"%>
+            <% end %>
+            </div>
+          <td>
+        <% end %>
+      </tr>
+    </table>
+  </div>
 
-          <% end %>
-        </div>
-      <td>
-    </tr>
-  </table>
-</div>
 <%= yield %>
 
 </body>

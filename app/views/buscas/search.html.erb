@@ -40,7 +40,7 @@
     </tr>
     <% @consultas = Consulta.find(:all)%>
       <% @consultas.each do |consulta| %>
-        <% if consulta.consulta_id = 0 %> 
+        <% if consulta.consulta_id == 0 %> 
           <% if consulta.paciente_id == resultado.id %>
             <% if @layoutConsultaImpresso %>
 	      <% @layoutConsultaImpresso = FALSE %>
@@ -59,7 +59,7 @@
 	      <tr>
 		<td></td>
 		<td></td>
-		<td><%= consulta.convenio %></td>
+		<td><%= Convenio.find(:first, :conditions => ['id = ?', consulta.convenio] ).descricao %></td>
 		<td><%= consulta.status %></td>
 		<td><%= Medico.find(:first, :conditions => ['systemuser_id = ?', consulta.medico_id] ).nome %></td>
 		<td><center><%= formatacao_data_com_horas consulta.data_consulta %></center></td>
